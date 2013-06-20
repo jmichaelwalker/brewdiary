@@ -1,0 +1,25 @@
+<html>
+  <body>
+  <% session.clear %>
+    <h1>Member Login</h1>
+    <form method="Post" action="/login">
+    <p>
+    Username
+    <br>
+    <input type="text" name="username">
+
+    <p>
+    Password
+    <br>
+    <input type="password" name="password">
+
+    <p>
+    <button>Login</button>
+    <br>
+    <br>
+    <h2>Not yet a member? Please create a new member profile.</h2>
+    <br>
+      <button><a href="new_member">Add New</a></button>
+  </form>
+  </body>
+</html>

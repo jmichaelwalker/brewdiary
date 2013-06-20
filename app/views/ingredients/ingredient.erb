@@ -1,0 +1,71 @@
+<html>
+  <head>
+    
+  <% if @ingredient.new_record? %>
+    <h1>Add Ingredient</h1>
+  <% else %>
+    <h1>Edit Ingredient</h1>
+  <% end %>
+  
+  <% if @ingredient.id == nil
+    action = "/ingredient/new"
+  else
+    action = "/ingredient/#{@ingredient.id}"
+  end %>
+  
+    <form method="POST" action="<%= action %>">
+
+  
+    <title><%= @title %></title>
+    <style>
+      label {
+        width: 100px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <b>ID #: </b><%= @ingredient.id %>
+      <br>
+      <%= label_tag "ing_name", caption: "Name" %>
+      <%= text_field_tag "ing_name", id: "ing_name", value: @ingredient.ing_name %>
+      <br>
+      <%= label_tag "ing_type", caption: "Type" %> 
+      <%= text_field_tag "ing_type", id: "ing_type", value: @ingredient.ing_type %>
+      <br>
+      <%= label_tag "srm_ibu", caption: "Srm/Ibu" %>
+      <%= text_field_tag "srm_ibu", id: "srm_ibu", value: @ingredient.srm_ibu %>
+      <br>
+      <%= label_tag "other", caption: "Other" %>
+      <%= text_field_tag "other", id: "other", value: @ingredient.other %>
+      <br>
+
+      <button>Update</button>
+  </form>
+  
+Amt Name Type # %/IBU
+
+7 lbs 8.0 oz Pale Malt (2 Row) US (2.0 SRM) Grain 1 88.2 % <br>
+1 lbs Caramel/Crystal Malt - 10L (10.0 SRM) Grain 2 11.8 % <br>
+ <br>
+0.60 oz Amarillo [9.30 %] - Boil 60.0 min Hop 3 24.3 IBUs <br>
+0.25 oz Amarillo [9.30 %] - Boil 20.0 min Hop 4 6.1 IBUs <br>
+ <br>
+1.00 Items Whirlfloc Tablet (Boil 15.0 mins) Fining 5 - <br>
+ <br>
+1.0 pkg Cream Ale Yeast Blend (White Labs #WLP080) [50.28 ml] Yeast 6 – <br>
+ <br>
+
+
+  </body>
+
+</html>

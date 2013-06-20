@@ -1,0 +1,21 @@
+<%= form_for @member do |f| %>
+
+  <br>
+  Member User Name: 
+  <%= f.text_field :username %>
+  <br>
+  Member Temp Password:
+  <%= f.text_field :password %>
+  <br>
+  Member First Name: 
+  <%= f.text_field :first_name %>
+  <br>
+  Member Last Name:
+  <%= f.text_field :last_name %>
+  <br>
+  Member Email Address:
+  <%= f.text_field :email %>
+  <br>
+  <%= f.submit %>
+
+<% end %>

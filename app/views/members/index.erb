@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Ingredients</title>
+    <style>
+      label {
+        width: 100px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/members">
+    <table border=.2>
+      <tr>
+        <th>ID #</th>
+        <th>Username</th>
+        <th>Password</td>
+        <th>First Name</th>
+        <th>Last Name</th> 
+        <th>Member Type</th>
+        <th>Member Email</th>
+        <th></th>
+      </tr>
+      <tr>
+        <% @all_members.each do |member| %>
+        <td><%= member.id %></td>
+        <td><%= member.username %></td>
+        <td><%= member.password %></td>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.mem_type %></td>
+        <td><%= member.email %></td>
+        <td>
+          <button name="edit" value="<%= member.id %>">Edit</button>
+          <button name="delete" value="<%= member.id %>">Delete</button>  
+        </td>
+      </tr>
+    <% end %>
+    </table>
+      <button name="new" value="new">Add New</button>
+  </form>
+
+  </body>
+</html>

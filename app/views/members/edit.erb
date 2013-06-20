@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <style>
+      label {
+        width: 180px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 160px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  <% if @member.errors.size > 0 %>
+    Errors: 
+  <ul>
+    <%= for error in @member.errors.full_messages %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <h1>@title</h1>
+  </head>
+  <body>
+  <br>
+  <%= render :partial => "member_form_fields" %>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Ingredients</title>
+    <style>
+      label {
+        width: 100px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/ingredients">
+    <table border=.2>
+      <tr>
+        <th>ID #</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Color</th> 
+        <th>SRM/IBUs</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+      <tr>
+        <% @ingredients.each do |ingredient| %>
+        <td><%= ingredient.id %></td>
+        <td><%= ingredient.ing_name %></td>
+        <td><%= ingredient.ing_type %></td>
+        <td><%= ingredient.color %></td>
+        <td><%= ingredient.srm_ibu %></td>
+        <td><%= ingredient.other %></td>
+        <td>
+          <button name="edit" value="<%= ingredient.id %>">Edit</button>
+          <button name="delete" value="<%= ingredient.id %>">Delete</button>  
+        </td>
+      </tr>
+    <% end %>
+    </table>
+      <button name="new" value="new">Add New</button>
+  </form>
+<br>
+<br>
+Ingredients
+  Grains
+  Hops
+  Yeast
+  Other
+
+Amt Name Type # %/IBU
+
+7 lbs 8.0 oz Pale Malt (2 Row) US (2.0 SRM) Grain 1 88.2 %
+1 lbs Caramel/Crystal Malt - 10L (10.0 SRM) Grain 2 11.8 %
+
+0.60 oz Amarillo [9.30 %] - Boil 60.0 min Hop 3 24.3 IBUs
+0.25 oz Amarillo [9.30 %] - Boil 20.0 min Hop 4 6.1 IBUs
+
+1.00 Items Whirlfloc Tablet (Boil 15.0 mins) Fining 5 -
+
+1.0 pkg Cream Ale Yeast Blend (White Labs #WLP080) [50.28 ml] Yeast 6 –
+
+
+  </body>
+
+</html>

@@ -1,0 +1,158 @@
+<html>
+  <head>
+    <title><%= @title %></title>
+    <style>
+      label {
+        width: 100px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <% form_tag(action) do %>
+
+      <%= label_tag "recipe_name", caption: "Recipe Name" %>
+      <%= text_field_tag "recipe_name", id: "recipe_name",
+            value: @recipe.name %>
+
+      <%= label_tag "recipe_type", caption: "Recipe Type" %>
+      <%= text_field_tag "recipe_type", id: "recipe_type",
+            value: @recipe.type %>
+
+      <%= label_tag "brew_date", caption: "Brew Date" %>
+      <%= text_field_tag "brew_date", id: "brew_date",
+            value: @recipe.brew_date %>
+
+      <label>Yeast Starter</label>
+      <%= radio_button_tag "yeast_starter", id: "yeast_starter_yes",
+      value: "Yes", checked: @recipe.yeast_starter == yes %>
+      <%= radio_button_tag "yeast_starter", id: "yeast_starter_no",
+      value: "Yes", checked: @recipe.yeast_starter == no %>
+
+      <%= label_tag "batch_size", caption: "Batch Size (gallons)" %>
+      <%= text_field_tag "batch_size", id: "batch_size",
+            value: @recipe.batch_size %>
+
+      <%= label_tag "mash_time", caption: "Mash Time (minutes)" %>
+      <%= text_field_tag "mash_time", id: "mash_time",
+            value: @recipe.mash_time %>
+
+      <%= label_tag "mash_temp", caption: "Mash Temp (degrees)" %>
+      <%= text_field_tag "mash_temp", id: "mash_temp",
+            value: @recipe.mash_temp %>   
+            
+Ingredients
+  Grains
+  Hops
+  Yeast
+  Other
+
+Amt Name Type # %/IBU
+
+7 lbs 8.0 oz Pale Malt (2 Row) US (2.0 SRM) Grain 1 88.2 %
+1 lbs Caramel/Crystal Malt - 10L (10.0 SRM) Grain 2 11.8 %
+
+0.60 oz Amarillo [9.30 %] - Boil 60.0 min Hop 3 24.3 IBUs
+0.25 oz Amarillo [9.30 %] - Boil 20.0 min Hop 4 6.1 IBUs
+
+1.00 Items Whirlfloc Tablet (Boil 15.0 mins) Fining 5 -
+
+1.0 pkg Cream Ale Yeast Blend (White Labs #WLP080) [50.28 ml] Yeast 6 –
+
+
+
+ 		  <%= label_tag "org_gravity", caption: "Original Gravity" %>
+      <%= text_field_tag "org_gravity", id: "org_gravity",
+            value: @recipe.org_gravity %>
+
+      <%= label_tag "org_gravity_temp", caption: "Temp" %>
+      <%= text_field_tag "org_gravity_temp", id: "org_gravity_temp",
+            value: @recipe.org_gravity_temp %>
+
+      <%= label_tag "final_gravity", caption: "Final Gravity" %>
+      <%= text_field_tag "final_gravity", id: "final_gravity",
+            value: @recipe.final_gravity %>
+
+      <%= label_tag "final_gravity_temp", caption: "Temp" %>
+      <%= text_field_tag "final_gravity_temp", id: "final_gravity_temp",
+            value: @recipe.final_gravity_temp %>
+
+      <%= label_tag "ibu", caption: "IBU" %>
+      <%= text_field_tag "ibu", id: "ibu",
+            value: @recipe.ibu %>
+
+            
+            
+
+
+      <%= label_tag "boil_time", caption: "Boil Time (minutes)" %>
+      <%= text_field_tag "boil_time", id: "boil_time",
+            value: @recipe.boil_time %>
+
+      <%= label_tag "boil_time", caption: "Boil Time (minutes)" %>
+      <%= text_field_tag "boil_time", id: "boil_time",
+            value: @recipe.boil_time %>
+
+      <%= label_tag "color", caption: "Beer Color" %>
+      <%= text_field_tag "color", id: "color",
+            value: @recipe.color %>
+
+
+      <%= label_tag "pri_ferm_days", caption: "Primary Fermentation (# of days & temp)" %>
+      <%= text_field_tag "pri_ferm_days", id: "pri_ferm_days",
+            value: @recipe.pri_ferm_days %>
+      <%= label_tag "pri_ferm_temp" %>
+      <%= text_field_tag "pri_ferm_temp", id: "pri_ferm_temp",
+            value: @recipe.pri_ferm_temp %>
+
+      <%= label_tag "pri_ferm_notes", caption: "Primary Fermentation Notes" %>
+      <%= text_field_tag "pri_ferm_notes", id: "pri_ferm_notes",
+            value: @recipe.pri_ferm_notes %>
+
+      <%= label_tag "sec_ferm_days", caption: "Secondary Fermentation (# of days & temp" %>
+      <%= text_field_tag "sec_ferm_days", id: "sec_ferm_days",
+            value: @recipe.sec_ferm_days %>
+      <%= label_tag "sec_ferm_temp" %>
+      <%= text_field_tag "sec_ferm_temp", id: "sec_ferm_temp",
+            value: @recipe.sec_ferm_temp %>
+         
+      <%= label_tag "sec_ferm_notes", caption: "Secondary Fermentation Notes" %>
+      <%= text_field_tag "sec_ferm_notes", id: "sec_ferm_notes",
+            value: @recipe.sec_ferm_notes %>  
+
+
+
+      <%= label_tag "taste_rating", caption: "Taste Rating" %>
+      <%= text_field_tag "taste_rating", id: "taste_rating",
+            value: @recipe.taste_rating %>
+            
+      <%= label_tag "tasting_notes", caption: "Tasting Notes" %>
+      <%= text_field_tag "tasting_notes", id: "tasting_notes",
+            value: @recipe.tasting_notes %>
+
+
+
+
+Actual Alcohol by Vol:
+Bitterness:
+Calories (per 12oz):
+Est Color: 4.5 SRM
+
+
+
+      <br>
+      <div class='label-spacer'></div>
+      <button name="action" value="save">Save</button>
+      <br>
+    <% end %>
+  </body>
+
+</html>

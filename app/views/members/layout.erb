@@ -1,0 +1,20 @@
+<html>
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">The Brew Diary</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
+  <body>
+  <% @member = Member.where(id: session["found_member_id"]).first %>
+  <div style="float:right">You are logged in as <%= @member.username %>!
+  <button name="logout" onclick="location.href='/login'">Log Out</button></div>
+    <hr/>
+    <%= yield %>
+  </body>
+</html>

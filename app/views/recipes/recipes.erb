@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Recipes</title>
+    <style>
+      label {
+        width: 100px;
+        float: left;
+      }
+      label[for=is_unused] {
+        float: none;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/recipes">
+    <table border=1>
+      <tr>
+        <th>ID #</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Batch Size</th> 
+        <th>Rating</th>
+        <th>Notes</th>
+        <th>Review</th>
+        <th></th>
+      </tr>
+      <tr>
+        <% @recipes.each do |recipe| %>
+        <td><%= recipe.recipe_name %></td>
+        <td><%= recipe.recipe_type %></td>
+        <td><%= recipe.batch_size %></td>
+        <td><%= recipe.color %></td>
+        <td><%= recipe.taste_rating%></td>
+        <td><%= recipe.tasting_notes %></td>
+        <td><%= recipe.review %></td>
+        <td>  
+          <button name="edit" value="<%= recipe.id %>">Edit</button>
+          <button name="delete" value="<%= recipe.id %>">Delete</button>  
+        </td>
+      </tr>
+    <% end %>
+    </table>
+      <button name="new" value="new">Add New</button>
+  </form>
+    <br>
+    <br>
+  </body>
+
+</html>
