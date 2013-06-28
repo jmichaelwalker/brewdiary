@@ -36,6 +36,10 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def new
+    @ingredient = Ingredient.new
+    render :new and return
+  end
   
   def create
     @ingredient              = Ingredient.where(id: params["ingredient_id"]).first

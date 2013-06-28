@@ -1,5 +1,11 @@
 <html>
   <head>
+
+  <%= stylesheet_link_tag    "bootstrsp", :media => "all" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+  
+  <title><%= @title %></title>
     
   <% if @ingredient.new_record? %>
     <h1>Add Ingredient</h1>
@@ -15,22 +21,6 @@
   
     <form method="POST" action="<%= action %>">
 
-  
-    <title><%= @title %></title>
-    <style>
-      label {
-        width: 100px;
-        float: left;
-      }
-      label[for=is_unused] {
-        float: none;
-      }
-      .label-spacer {
-        width: 100px;
-        height: 1px;
-        float: left;
-      }
-    </style>
   </head>
   <body>
     

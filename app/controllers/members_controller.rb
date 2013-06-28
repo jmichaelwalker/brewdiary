@@ -1,17 +1,14 @@
 class MembersController < ApplicationController
 
-  before_filter(except: ["login", "login_post", "logout"]) do
-    if session[:member_id] != nil
-      @member = Member.where(id: session[:member_id]).first
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to :login and return
-    end
-  end
+#  before_filter(except: ["login", "login_post", "logout"]) do
+#    if session[:member_id] != nil
+#      @member = Member.where(id: session[:member_id]).first
+#    else
+#      flash[:error] = "You must be logged in to see that page."
+#      redirect_to :login and return
+#    end
+#  end
 
-  def root
-    redirect_to login and return
-  end
 
   def login
     @title = "Member Login"
@@ -21,22 +18,22 @@ class MembersController < ApplicationController
   def login_post
     username = params[:username]
     password = params[:password]
-    member = Member.where(username: username).first
-
-    if member == nil
+    @member = Member.where(username: username).first
+    
+    if @member == nil
       flash.now[:error] = "Unknown username"
       render :login and return
-    elsif password != member.password
+    elsif password != @member.password
       flash.now[:error] = "Wrong password"
       render :login and return
     else 
-      session[:member_id] = member.id
+      session[:member_id] = @member.id
       redirect_to :welcome and return
     end
   end
 
   get :welcome do
-    @member = Member.where(id: session["found_member_id"]).first
+    @member = Member.where(id: session[:member_id]).first
     if @member == nil
       redirect_to :login and return
     else
@@ -45,9 +42,9 @@ class MembersController < ApplicationController
   end
 
   get :welcome_admin do
-    @member = Member.where(id: session["found_member_id"]).first
+    @member = Member.where(id: session[:member_id]).first
     if @member == nil || @member.mem_type != "Admin"
-      redirect_to :login and return
+      redirect_to :welcome and return
     else
       render :welcome_admin and return
     end
@@ -60,7 +57,7 @@ class MembersController < ApplicationController
   end
 
   def edit
-    @member = Member.where(id: session["found_member_id"]).first
+    @member = Member.where(id: session["member_id"]).first
     if @member == nil
       redirect "/login"
     else

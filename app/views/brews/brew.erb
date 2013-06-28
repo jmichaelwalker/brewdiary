@@ -1,20 +1,11 @@
 <html>
   <head>
-    <title><%= @title %></title>
-    <style>
-      label {
-        width: 100px;
-        float: left;
-      }
-      label[for=is_unused] {
-        float: none;
-      }
-      .label-spacer {
-        width: 100px;
-        height: 1px;
-        float: left;
-      }
-    </style>
+
+  <%= stylesheet_link_tag    "bootstrsp", :media => "all" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+  
+  <title><%= @title %></title>
   </head>
   <body>
     <% form_tag(action) do %>

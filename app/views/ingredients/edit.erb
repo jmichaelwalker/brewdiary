@@ -1,23 +1,16 @@
 <html>
   <head>
-    <title>Ingredients</title>
-    <style>
-      label {
-        width: 100px;
-        float: left;
-      }
-      label[for=is_unused] {
-        float: none;
-      }
-      .label-spacer {
-        width: 100px;
-        height: 1px;
-        float: left;
-      }
-    </style>
+  <head>
+
+  <%= stylesheet_link_tag    "bootstrsp", :media => "all" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+  
+  <title><%= @title %></title>
+  </head>
   </head>
   <body>
-    <form method="POST" action="/ingredients">
+    <form method="POST" action="/show">
     <table border=.2>
       <tr>
         <th>ID #</th>

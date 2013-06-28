@@ -2,7 +2,7 @@
 development:
   adapter: postgresql
   host: localhost
-  database: brew_diary
+  database: "brew_diary"
   username: postgres
   password: postgres
   encoding: unicode
